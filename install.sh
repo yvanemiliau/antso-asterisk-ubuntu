@@ -3,7 +3,7 @@
 echo "asterisk 16.12.0 with asterisk-chan-dongle module installation ..."
 echo ""
 echo "WARNING: You should always be present until the installation is finished ..."
-echo "press ENTER to continue"
+echo "press ANY KEY to continue, CTRL+C to abort ..."
 read NOTHING
 echo ""
 sleep 1
@@ -17,15 +17,19 @@ echo "\n"
 cd packages
 echo "Decompressing asterisk asterisk-16.12.0.tar.gz ..."
 tar -xzf asterisk-16.12.0.tar.gz
+sudo chmod -R 777 asterisk-16.12.0
 
 echo "Decompressing asterisk-chan-dongle-16.tar.gz ..."
 tar -xzf asterisk-chan-dongle-16.tar.gz
+sudo chmod -R 777 asterisk-chan-dongle-16
 
 echo "Decompressing asterisk-googletts.tar.gz ..."
 tar -xzf asterisk-googletts.tar.gz
+sudo chmod -R 777 asterisk-googletts
 
 echo "Decompressing mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit.tar.gz" 
 tar -xzf mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit.tar.gz
+sudo chmod -R 777 mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit
 
 echo "Installing dependencies and useful packages ..."
 apt-get install git curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev  uuid-dev
@@ -49,7 +53,9 @@ groupadd asterisk
 useradd -r -d /var/lib/asterisk -g asterisk asterisk
 usermod -aG audio,dialout asterisk
 chown -R asterisk.asterisk /etc/asterisk
-chown -R asterisk.asterisk /var/{lib,log,spool}/asterisk
+chown -R asterisk.asterisk /var/lib/asterisk
+chown -R asterisk.asterisk /var/log/asterisk
+chown -R asterisk.asterisk /var/spool/asterisk
 chown -R asterisk.asterisk /usr/lib/asterisk
 
 cp ../../config/etc/default/asterisk /etc/default/asterisk
@@ -57,8 +63,8 @@ cp ../../config/etc/asterisk/asterisk.conf /etc/asterisk/asterisk.conf
 
 cd ../asterisk-chan-dongle-16
 ./bootstrap
-./configure --with-astversion=16.12.0 && make
-make install
+sudo ./configure --with-astversion=16.12.0 && sudo make
+sudo make install
 cp ../../config/etc/asterisk/dongle.conf /etc/asterisk/
 
 cd ../asterisk-googletts
