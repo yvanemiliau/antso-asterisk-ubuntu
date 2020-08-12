@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "asterisk 15.5.0 with asterisk-chan-dongle module installation ..."
+echo "asterisk 16.12.0 with asterisk-chan-dongle module installation ..."
 echo ""
 echo "WARNING: You should always be present until the installation is finished ..."
 echo "press ENTER to continue"
@@ -15,8 +15,8 @@ echo "Decompressing packages ..."
 echo "\n"
 
 cd packages
-echo "Decompressing asterisk asterisk-15.5.0.tar.gz ..."
-tar -xzf asterisk-15.5.0.tar.gz
+echo "Decompressing asterisk asterisk-16.12.0.tar.gz ..."
+tar -xzf asterisk-16.12.0.tar.gz
 
 echo "Decompressing asterisk-chan-dongle-16.tar.gz ..."
 tar -xzf asterisk-chan-dongle-16.tar.gz
@@ -28,14 +28,11 @@ echo "Decompressing mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit.tar.
 tar -xzf mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit.tar.gz
 
 echo "Installing dependencies and useful packages ..."
-apt-get install git curl wget \
-libnewt-dev libssl-dev libncurses5-dev \
-subversion libsqlite3-dev build-essential \
-libjansson-dev libxml2-dev  uuid-dev unixodbc unixodbc-dev
+apt-get install git curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev  uuid-dev
 
 echo "Installing asterisk ..."
 sleep 1
-cd asterisk-15.5.0
+cd asterisk-16.12.0
 contrib/scripts/get_mp3_source.sh
 contrib/scripts/install_prereq install
 ./configure && make menuselect
@@ -60,7 +57,7 @@ cp ../../config/etc/asterisk/asterisk.conf /etc/asterisk/asterisk.conf
 
 cd ../asterisk-chan-dongle-16
 ./bootstrap
-./configure --with-astversion=15.5.0 && make
+./configure --with-astversion=16.12.0 && make
 make install
 cp ../../config/etc/asterisk/dongle.conf /etc/asterisk/
 
