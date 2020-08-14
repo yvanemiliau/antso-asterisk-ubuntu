@@ -9,4 +9,4 @@ This project aims to make an international call using asterisk with the chan_don
 
 # How to install?
 
-Just execute install.sh and follow the instrusctions.
+Just execute install.sh as root and follow the instrusctions.
