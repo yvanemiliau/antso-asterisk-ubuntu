@@ -32,7 +32,7 @@ tar -xzf mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit.tar.gz
 sudo chmod -R 777 mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit
 
 echo "Installing dependencies and useful packages ..."
-apt-get install git curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev  uuid-dev
+apt-get install git curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev  uuid-dev perl libwww-perl sox mpg123
 
 echo "Installing asterisk ..."
 sleep 1
