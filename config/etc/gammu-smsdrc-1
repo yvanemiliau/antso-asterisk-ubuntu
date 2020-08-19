@@ -1,0 +1,18 @@
+[gammu]
+port = /dev/ttyUSB0
+connection =at115200
+logformat=textall
+logfile=/var/log/gammu/gammu.log
+
+[smsd]
+service=sql
+driver=native_mysql
+host=localhost
+user=smsd
+password=mysqlsmsdpass
+database=smsd
+PIN=0000
+CheckSecurity=0
+logfile=/var/log/gammu/gammu-smsd.log
+runonreceive=/usr/src/scripts/sendSmsFromDongle.sh
+debuglevel=0
