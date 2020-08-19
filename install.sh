@@ -74,9 +74,10 @@ cd ../mysql-connector-odbc-5.3.10-linux-ubuntu16.04-x86-64bit
 cp lib/libmyodbc* /usr/lib/x86_64-linux-gnu/odbc/
 
 bin/myodbc-installer -d -a -n "MySQL" -t "DRIVER=/usr/lib/x86_64-linux-gnu/odbc/libmyodbc5w.so;"
-bin/myodbc-installer -s -a -c2 -n "asterisk-connector" -t "DRIVER=MySQL;SERVER=127.0.0.1;DATABASE=asterisk;UID=asterisk;PWD=asteriskpass;SOCKET=/var/run/mysqld/mysqld.sock"
 
-cp ../../config/etc/asterisk/dongle.conf /etc/asterisk/
+cp ../../config/etc/asterisk/* /etc/asterisk/
+cp ../../config/etc/gammu-smsd-1 /etc/
+cp ../../config/etc/odbc.ini
 cp ../../config/etc/udev/rules.d/92-dongle.rules /etc/udev/rules.d/
 
 udevadm control --reload-rules && udevadm trigger
