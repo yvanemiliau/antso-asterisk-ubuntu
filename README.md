@@ -111,17 +111,18 @@ mysql -u smsd -p smsd < smsd.sql
 mysql -u asterisk -p asterisk < asterisk.sql
 ```
 
-# Understand asterisk database
+# Understand asterisk database and dialplan
 
-There are some tables in the asterisk databases. Among them is `\`typeNumero\``.
+There are some tables in the asterisk databases. Among them is \``typeNumero`\`.
 
 This is what the dialpan checks firt when a call is made to see where the call is from and where it is to.
 
-There are 4 important columns in `\`typeNumero\``: `\`idTypeNumero\``, `\`channel\``, `\`prefix\``, `\`nombre\``.
+There are 4 important columns in \``typeNumero`\`: \``idTypeNumero`\`, \``channel`\`, \``prefix`\`, \``nombre\``.
 
-The `\`prefix\`` and `\`nombre\`` together is different for every country.
-- `\`prefix\`` is the country dialing code.
-- `\`nombre\`` is the number of the number character.
-But I almost forgot something. In addition to the `\`prefix\``, there are also operator and area code.
+The \``prefix`\` and \``nombre`\` together is different for every country.
+- \``prefix`\` is the country dialing code.
+- \``nombre`\` is the number of the number character.
+But I almost forgot something. In addition to the \``prefix`\`, there are also operator and area code.
 Example: Madagasar dialing code is +261, +26134 is Telma's code, +26132 is Orange's ... etc
          Senegal dialing code is +221, ... 
+
