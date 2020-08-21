@@ -132,6 +132,6 @@ First : `extensions.conf` (this is the default one). It allows any one to call a
 
 Second: `extensions.conf2`. It allows people to call a number in the server and enter the number they want to call.
 
-If we want both to be integrated in our dialplan then copy all the code bellow `; allows people to enter number` comment in `extensions.conf2` and paste it at the end of `extensions.conf`
+If we want both to be integrated in our dialplan, copy `extensions.conf` to `/etc/asterisk/` and then copy all the code bellow `; allows people to enter number` comment in `extensions.conf2` and paste it at the end of `/etc/asterisk/extensions.conf`
 
 If we want only one then rename the one want to `extensions.conf` and the unwanted one to whatever name you want.
