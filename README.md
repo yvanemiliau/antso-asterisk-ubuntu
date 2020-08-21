@@ -117,7 +117,7 @@ There are some tables in the asterisk databases. Among them is \``typeNumero`\`.
 
 This is what the dialpan checks firt when a call is made to see where the call is from and where it is to.
 
-There are 4 important columns in \``typeNumero`\`: \``idTypeNumero`\`, \``channel`\`, \``prefix`\`, \``nombre\``.
+There are 4 important columns in \``typeNumero`\`: \``idTypeNumero`\`, \``channel`\`, \``prefix`\`, \``nombre`\`.
 
 The \``prefix`\` and \``nombre`\` together is different for every country.
 - \``prefix`\` is the country dialing code.
@@ -126,3 +126,12 @@ But I almost forgot something. In addition to the \``prefix`\`, there are also o
 Example: Madagasar dialing code is +261, +26134 is Telma's code, +26132 is Orange's ... etc
          Senegal dialing code is +221, ... 
 
+There are two kinds of  `extensions.conf` in the `configs/etc/asterisk/` folder.
+
+First : `extensions.conf` (this is the default one). It allows any one to call a number in server that corresponds to a person in other country. The corresponding numbers are in the database.
+
+Second: `extensions.conf2`. It allows people to call a number in the server and enter the number they want to call.
+
+If we want both to be integrated in our dialplan then copy all the code bellow `; allows people to enter number` comment in `extensions.conf2` and paste it at the end of `extensions.conf`
+
+If we want only one then rename the one want to `extensions.conf` and the unwanted one to whatever name you want.
